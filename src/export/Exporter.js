@@ -21,7 +21,11 @@ export default new class Exporter {
         //получить данные отрисованных спрайтов из спрайтлиста (по массиву имен)
         let spriteSheetData = this._spriteSheetsData[spriteSheetName];
         sprites.forEach((spriteName)=>{
-            spriteSheetData[spriteName] = RendererExport.drawSpriteToExport(spriteSheetName, spriteName);
+            let type = spriteName.indexOf(/(.jpg|.jpeg)/) === -1 ? 'image/png' : 'image/jpg'
+            spriteSheetData[spriteName] = {
+                data: RendererExport.drawSpriteToExport(spriteSheetName, spriteName, type),
+                type: type
+            };
         });
 
         //создать архив
@@ -39,7 +43,9 @@ export default new class Exporter {
         let zip = new JSZip();
         for (let param in spriteSheetData) {
             if (spriteSheetData.hasOwnProperty(param)) {
-                zip.file(param + '.png', this._formatURL(spriteSheetData[param]), {base64: true});
+                let exportData = spriteSheetData[param];
+                let ext = exportData.type === 'image/jpg' ? '.jpg' : '.png';
+                zip.file(param + ext, this._formatURL(exportData.data), {base64: true});
             }
         }
         zip.generateAsync({type: "base64"}).then(this._onZipGenerateComplete(spriteSheetName));

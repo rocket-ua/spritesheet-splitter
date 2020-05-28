@@ -22,6 +22,9 @@ export default new class ResourcesManager {
         let resource = null;
         let type = this.getSrcResourceType(data);
         let typeData = this._fileTypes[type];
+        if (!typeData) {
+            return;
+        }
         switch (typeData.type) {
             case 1:
                 resource = this.getData(name, typeData, data);

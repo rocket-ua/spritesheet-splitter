@@ -1,5 +1,6 @@
 import EventEmitter from "../event/EventEmitter";
 import ResourcesManager from "../resources/ResourcesManager";
+import GlobalDispatcher from "../event/GlobalDispatcher";
 
 export default new class ResourceLoader extends EventEmitter {
     constructor() {
@@ -22,6 +23,7 @@ export default new class ResourceLoader extends EventEmitter {
     load() {
         this._inProgress = true;
         let loadData = this._loaderStack.shift();
+        console.log('[ResourceLoader] Start loading:', loadData.url);
         this.gameXHR.open('GET', loadData.url, true);
         this.gameXHR.responseType = "blob";
         this.gameXHR.send();
@@ -32,14 +34,15 @@ export default new class ResourceLoader extends EventEmitter {
     }
 
     onLoad(event) {
+        console.log('[ResourceLoader] Loading complete:', event.target.responseURL);
+        this.fileLoadingComplete(event.target);
         if (this._loaderStack.length > 0) {
             this.load();
         } else {
-            console.log('All loaded');
+            console.log('[ResourceLoader] All files loaded');
             this._inProgress = false;
             this.emit('allComplete');
         }
-        this.fileLoadingComplete(event.target);
     }
 
     fileLoadingComplete(data) {

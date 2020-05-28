@@ -16,13 +16,14 @@ export default new class RendererExport {
      * Отрисовать спрайт на канвасеб перевести в DataURL и вернуть это значение
      * @param spriteSheetName имя спрайтлиста из которого нужно вырезать спрайт
      * @param spriteName имя спрайта который нужно отрисовать
+     * @param type тип экспорта (jpg или png)
      * @returns {string} DataURL
      */
-    drawSpriteToExport(spriteSheetName, spriteName) {
+    drawSpriteToExport(spriteSheetName, spriteName, type) {
         this._context.resetTransform();
         this._context.clearRect(0, 0, this._canvas.width, this._canvas.width);
         this.drawSprite(spriteSheetName, spriteName);
-        return this._canvas.toDataURL('image/png');
+        return this._canvas.toDataURL(type);
     }
 
     /**

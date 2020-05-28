@@ -1,5 +1,5 @@
 import ResourceManager from "../resources/ResourcesManager";
-import Exporter from "../export/Exporter"
+import SpritePattern from "./SpritePattern";
 
 export default class Renderer {
     constructor(canvas) {
@@ -10,7 +10,7 @@ export default class Renderer {
         this._context = this._canvas.getContext("2d", {alpha: true});
 
         this.spritesOffset = {
-            x: 20,
+            x: 15,
             y: 0
         }
 
@@ -46,7 +46,7 @@ export default class Renderer {
 
         this._context.resetTransform();
         this._context.clearRect(0, 0, this._canvas.offsetWidth, this._canvas.offsetHeight);
-        this._context.fillStyle = '#016eaa';
+        this._context.fillStyle = 'rgba(1,110,170, 1)';
         this._context.fillRect(0, 0, this._canvas.width, this._canvas.height);
         //this._context.scale(0.5, 0.5);
 
@@ -67,6 +67,7 @@ export default class Renderer {
 
         this.drawSpriteSheet('spriteSheet');
 
+        //this.highlightSprites('spriteSheet', ['graphics/background/ship']);
         //this.highlightSprites('spriteSheet', ['52', '44', '46']);
         //this.highlightSprites('spriteSheet', ['graphics/symbols/Symbol_9', 'graphics/symbols/Symbol_11_blur', 'graphics/decorations/fog', 'graphics/symbols/Symbol_6_blur', 'graphics/symbols/Symbol_5_blur']);
         //this.drawSprite('game-1', 'graphics/ui/bottom_UI_panel_back');
@@ -82,12 +83,7 @@ export default class Renderer {
         });
         sizeData.width += (spriteSheet.textures.length - 1) * this.spritesOffset.x;
         sizeData.height += (spriteSheet.textures.length - 1) * this.spritesOffset.y;
-        /*let scale = 1;
-        if (sizeData.width > sizeData.height) {
-            scale = this._canvas.width / sizeData.width;
-        } else {
-            scale = this._canvas.height / sizeData.height;
-        }*/
+
         let scale = 1;
         if (this._canvas.width < (sizeData.width * scale)) {
             scale *= this._canvas.width / (sizeData.width * scale);
@@ -95,6 +91,10 @@ export default class Renderer {
         if (this._canvas.height < (sizeData.height * scale)) {
             scale *= this._canvas.height / (sizeData.height * scale);
         }
+        this._context.translate(
+            (this._canvas.width - (sizeData.width * scale)) / 2,
+            (this._canvas.height - (sizeData.height * scale)) / 2
+        );
         this._context.scale(scale, scale);
     }
 
@@ -129,7 +129,7 @@ export default class Renderer {
 
     drawSpriteBackground(width, height) {
         this._context.strokeStyle = 'rgba(0, 0, 0, 1)';
-        this._context.fillStyle = 'rgb(180,180,180)';
+        this._context.fillStyle = this._context.createPattern(SpritePattern.canvas,'repeat'); //'rgb(180,180,180)';
         this._context.fillRect(0, 0, width, height);
         this._context.strokeRect(0, 0, width, height);
     }
