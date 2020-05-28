@@ -1,0 +1,40 @@
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    overflow: hidden;
+}
+
+canvas {
+    padding: 0;
+    margin: 0;
+   /* position: absolute;*/
+    width: 100%;
+    height: 100%;
+    /*background-color: #CCCCCC;*/
+}
+
+#splitter-panel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#dropArea {
+    background-color: rgba(204, 204, 204, 0.7);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+
+    border: 4px dashed #4597B7;
+    pointer-events: none;
+    box-shadow: 0 0 10px 0 black;
+    box-sizing:  border-box;
+}
+
+#dropArea.highlight {
+    display: block;
+}

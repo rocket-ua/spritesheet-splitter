@@ -1,0 +1,229 @@
+{"frames": {
+
+"graphics/decorations/fog":
+{
+	"frame": {"x":494,"y":409,"w":480,"h":480},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":480},
+	"sourceSize": {"w":480,"h":480}
+},
+"graphics/paytable/Icarys_Free_Spins_paytable":
+{
+	"frame": {"x":1,"y":371,"w":491,"h":380},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":491,"h":380},
+	"sourceSize": {"w":491,"h":380}
+},
+"graphics/paytable/Locked_Wild_Paytable":
+{
+	"frame": {"x":815,"y":205,"w":202,"h":202},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":202,"h":202},
+	"sourceSize": {"w":202,"h":202}
+},
+"graphics/paytable/Multyplier_Wild_paytable":
+{
+	"frame": {"x":815,"y":1,"w":202,"h":203},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":202,"h":203},
+	"sourceSize": {"w":202,"h":203}
+},
+"graphics/symbols/Symbol_1":
+{
+	"frame": {"x":249,"y":753,"w":240,"h":240},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":6,"w":240,"h":240},
+	"sourceSize": {"w":246,"h":246}
+},
+"graphics/symbols/Symbol_1_blur":
+{
+	"frame": {"x":1,"y":753,"w":246,"h":246},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":246,"h":246},
+	"sourceSize": {"w":246,"h":246}
+},
+"graphics/symbols/Symbol_2":
+{
+	"frame": {"x":491,"y":891,"w":246,"h":246},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":246,"h":246},
+	"sourceSize": {"w":246,"h":246}
+},
+"graphics/symbols/Symbol_2_blur":
+{
+	"frame": {"x":1,"y":1001,"w":246,"h":246},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":246,"h":246},
+	"sourceSize": {"w":246,"h":246}
+},
+"graphics/symbols/Symbol_3":
+{
+	"frame": {"x":739,"y":891,"w":246,"h":246},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":246,"h":246},
+	"sourceSize": {"w":246,"h":246}
+},
+"graphics/symbols/Symbol_3_blur":
+{
+	"frame": {"x":491,"y":1139,"w":246,"h":246},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":246,"h":246},
+	"sourceSize": {"w":246,"h":246}
+},
+"graphics/symbols/Symbol_4":
+{
+	"frame": {"x":1,"y":1249,"w":246,"h":246},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":246,"h":246},
+	"sourceSize": {"w":246,"h":246}
+},
+"graphics/symbols/Symbol_4_blur":
+{
+	"frame": {"x":739,"y":1139,"w":246,"h":246},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":246,"h":246},
+	"sourceSize": {"w":246,"h":246}
+},
+"graphics/symbols/Symbol_5":
+{
+	"frame": {"x":489,"y":1387,"w":246,"h":246},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":246,"h":246},
+	"sourceSize": {"w":246,"h":246}
+},
+"graphics/symbols/Symbol_5_blur":
+{
+	"frame": {"x":1,"y":1497,"w":246,"h":246},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":246,"h":246},
+	"sourceSize": {"w":246,"h":246}
+},
+"graphics/symbols/Symbol_6":
+{
+	"frame": {"x":737,"y":1387,"w":246,"h":246},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":246,"h":246},
+	"sourceSize": {"w":246,"h":246}
+},
+"graphics/symbols/Symbol_6_blur":
+{
+	"frame": {"x":1,"y":1745,"w":246,"h":246},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":246,"h":246},
+	"sourceSize": {"w":246,"h":246}
+},
+"graphics/symbols/Symbol_7":
+{
+	"frame": {"x":249,"y":1712,"w":246,"h":246},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":246,"h":246},
+	"sourceSize": {"w":246,"h":246}
+},
+"graphics/symbols/Symbol_7_blur":
+{
+	"frame": {"x":497,"y":1635,"w":246,"h":246},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":246,"h":246},
+	"sourceSize": {"w":246,"h":246}
+},
+"graphics/symbols/Symbol_9":
+{
+	"frame": {"x":249,"y":1562,"w":148,"h":227},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":54,"y":16,"w":148,"h":227},
+	"sourceSize": {"w":246,"h":246}
+},
+"graphics/symbols/Symbol_11_blur":
+{
+	"frame": {"x":249,"y":1427,"w":133,"h":236},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":53,"y":10,"w":133,"h":236},
+	"sourceSize": {"w":246,"h":246}
+},
+"graphics/symbols/Symbol_12":
+{
+	"frame": {"x":249,"y":995,"w":240,"h":201},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":24,"w":240,"h":201},
+	"sourceSize": {"w":246,"h":246}
+},
+"graphics/symbols/Symbol_12_blur":
+{
+	"frame": {"x":249,"y":1198,"w":238,"h":227},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":15,"w":238,"h":227},
+	"sourceSize": {"w":246,"h":246}
+},
+"graphics/ui/Autoplay_Basic":
+{
+	"frame": {"x":1,"y":1,"w":812,"h":368},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":812,"h":368},
+	"sourceSize": {"w":812,"h":368}
+},
+"graphics/ui/paytableItem":
+{
+	"frame": {"x":497,"y":1883,"w":223,"h":126},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":223,"h":126},
+	"sourceSize": {"w":223,"h":126}
+},
+"graphics/ui/Spin_Button":
+{
+	"frame": {
+		"x": 745,
+		"y": 1635,
+		"w": 184,
+		"h": 184
+	},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {
+		"x": 14,
+		"y": 13,
+		"w": 184,
+		"h": 184
+	},
+	"sourceSize": {
+		"w": 211,
+		"h": 211
+	}
+}},
+"animations": {
+	"graphics/symbols/Symbol": ["graphics/symbols/Symbol_1","graphics/symbols/Symbol_2","graphics/symbols/Symbol_3","graphics/symbols/Symbol_4","graphics/symbols/Symbol_5","graphics/symbols/Symbol_6","graphics/symbols/Symbol_7","graphics/symbols/Symbol_9","graphics/symbols/Symbol_12"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "game-7.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":2048},
+	"scale": "1",
+	"related_multi_packs": [ "game-1.json", "game-2.json", "game-3.json", "game-4.json", "game-5.json", "game-6.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:599962936fccc64605f809871c75683a:f93ca492bac3ed0abb57323df9c6a226:bd0d12ad2e1b864d9d6d76d56f4fe1ad$"
+}
+}
