@@ -3,12 +3,13 @@ import UploadManager from "./loader/UploadManager";
 import Renderer from "./renderer/Renderer";
 import Exporter from "./export/Exporter";
 import ResourceManager from "./resources/ResourcesManager";
+import Utils from "./Utils";
 
 export default class App {
     constructor() {
         this.init();
         this.addListeners();
-        //this.loadResources();
+        this.loadResources();
     }
 
     init() {
@@ -37,9 +38,10 @@ export default class App {
 
     loadResources() {
         ResourceLoader.on('allComplete', this.allResourcesLoaded, this);
-        //ResourceLoader.add('./assets/game-7.json');
-        ResourceLoader.add('https://book-of-pirates.dev.onlyplay.net/assets/game/game-1.json');
-        ResourceLoader.load();
+        if (Utils.getUrlParam('url')) {
+            ResourceLoader.add(Utils.getUrlParam('url'));
+            ResourceLoader.load();
+        }
     }
 
     allResourcesLoaded() {
