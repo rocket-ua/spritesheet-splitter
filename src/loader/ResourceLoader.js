@@ -23,7 +23,7 @@ export default new class ResourceLoader extends EventEmitter {
     load() {
         this._inProgress = true;
         let loadData = this._loaderStack.shift();
-        console.log('[ResourceLoader] Start loading:', loadData.url);
+        console.log(`[ResourceLoader] Start loading: ${loadData.url}`);
         this.gameXHR.open('GET', loadData.url, true);
         this.gameXHR.responseType = "blob";
         this.gameXHR.send();
@@ -34,12 +34,12 @@ export default new class ResourceLoader extends EventEmitter {
     }
 
     onLoad(event) {
-        console.log('[ResourceLoader] Loading complete:', event.target.responseURL);
+        console.log(`[ResourceLoader] Loading complete: ${event.target.responseURL}`);
         this.fileLoadingComplete(event.target);
         if (this._loaderStack.length > 0) {
             this.load();
         } else {
-            console.log('[ResourceLoader] All files loaded');
+            console.log(`[ResourceLoader] All files loaded`);
             this._inProgress = false;
             this.emit('allComplete');
         }
@@ -48,7 +48,9 @@ export default new class ResourceLoader extends EventEmitter {
     fileLoadingComplete(data) {
         let name = path.basename(data.responseURL);
         ResourcesManager.addResource(name, data.response);
-        if (data.response.type === 'application/json') {
+        let extName = path.extname(data.responseURL);
+        console.log(extName);
+        if (data.response.type === 'application/json' || extName === '.atlas') {
             let resource = ResourcesManager.getData(name);
             resource.on('loaded', ()=>{
                 resource.textures.forEach((textureData)=>{

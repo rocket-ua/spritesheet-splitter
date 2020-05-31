@@ -10,9 +10,14 @@ export default new class ResourcesManager {
             'image/jpg': {class: TextureResource, type: 2},
             'image/jpeg': {class: TextureResource, type: 2},
             'image/png': {class: TextureResource, type: 2},
+
             'application/json': {class: JSONResource, type: 1},
+
             'text/xml': {class: BitmapFontResource, type: 1},
-            'atlas': {class: AtlasResource, type: 1},
+
+            'application/atlas': {class: AtlasResource, type: 1},
+            'application/octet-stream': {class: AtlasResource, type: 1},
+            '.atlas': {class: AtlasResource, type: 1}
         }
 
         this._textures = {};
@@ -25,6 +30,7 @@ export default new class ResourcesManager {
         let type = this.getSrcResourceType(data);
         let typeData = this._fileTypes[type];
         if (!typeData) {
+            console.log(`[ResourcesManager] Unsupported file type ${type}`);
             return;
         }
         switch (typeData.type) {
@@ -70,7 +76,7 @@ export default new class ResourcesManager {
             return data.type;
         } else if (data.name) {
             let index = data.name.lastIndexOf('.');
-            return data.name.substring(index + 1).toLocaleLowerCase();
+            return data.name.substring(index).toLocaleLowerCase();
         }
         return '';
     }

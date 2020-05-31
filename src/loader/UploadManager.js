@@ -85,6 +85,7 @@ export default new class UploadManager {
     }
 
     loadFile(file) {
+        console.log(`[UploadManager] Loading complete: ${file.name}`);
         ResourcesManager.addResource(file.name, file);
         /*createImageBitmap(file).then((imageBitmap)=>{
              ResourcesManager.addTexture(file.name, imageBitmap);

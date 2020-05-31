@@ -2,7 +2,6 @@ import RendererExport from "../renderer/RendererExport";
 import ResourcesManager from "../resources/ResourcesManager.js";
 import JSZip from "jszip";
 
-
 export default new class Exporter {
     constructor() {
         this._spriteSheetsData = {};
@@ -42,11 +41,14 @@ export default new class Exporter {
      */
     _makeZip(spriteSheetData, spriteSheetName) {
         let zip = new JSZip();
+        console.log(`[Exporter] Export sprite sheet ${spriteSheetName}`)
         for (let param in spriteSheetData) {
             if (spriteSheetData.hasOwnProperty(param)) {
                 let exportData = spriteSheetData[param];
                 let ext = exportData.type === 'image/jpg' ? '.jpg' : '.png';
-                zip.file(param + ext, this._formatURL(exportData.data), {base64: true});
+                let filePath = param + ext;
+                console.log(`[Exporter] Export file ${filePath}`);
+                zip.file(filePath, this._formatURL(exportData.data), {base64: true});
             }
         }
         zip.generateAsync({type: "base64"}).then(this._onZipGenerateComplete(spriteSheetName));
