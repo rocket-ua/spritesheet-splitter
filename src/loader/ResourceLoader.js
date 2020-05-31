@@ -49,7 +49,6 @@ export default new class ResourceLoader extends EventEmitter {
         let name = path.basename(data.responseURL);
         ResourcesManager.addResource(name, data.response);
         let extName = path.extname(data.responseURL);
-        console.log(extName);
         if (data.response.type === 'application/json' || extName === '.atlas') {
             let resource = ResourcesManager.getData(name);
             resource.on('loaded', ()=>{
