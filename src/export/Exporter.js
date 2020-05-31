@@ -1,6 +1,7 @@
-import JSZip from "jszip";
 import RendererExport from "../renderer/RendererExport";
 import ResourcesManager from "../resources/ResourcesManager.js";
+import JSZip from "jszip";
+
 
 export default new class Exporter {
     constructor() {

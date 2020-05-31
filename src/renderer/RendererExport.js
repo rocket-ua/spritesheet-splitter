@@ -44,8 +44,17 @@ export default new class RendererExport {
             //Изменить размеры канваса под расмер спрайта
             this.correctCanvasSize(spriteData);
 
-            this._context.translate(0, (spriteData.rotated ? spriteData.sourceSize.h : 0));
-            this._context.rotate((Math.PI / 180) * (spriteData.rotated ? -90 : 0));
+            /*this._context.translate(0, (spriteData.rotated ? spriteData.sourceSize.h : 0));
+            this._context.rotate((Math.PI / 180) * (spriteData.rotated ? -90 : 0));*/
+            if (spriteData.rotated) {
+               if (spriteData.rotation > 0) {
+                   this._context.translate(spriteData.sourceSize.w, 0);
+                   this._context.rotate((Math.PI / 180) * 90);
+               } else {
+                   this._context.translate(0, spriteData.sourceSize.h);
+                   this._context.rotate((Math.PI / 180) * -90);
+               }
+            }
 
             //Отрисовать вырезать спрайт из спрайтлиста и отрисовать его на канвасе
             this._context.drawImage(

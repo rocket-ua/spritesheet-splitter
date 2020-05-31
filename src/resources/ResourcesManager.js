@@ -2,6 +2,7 @@ import TextureResource from "./resources/TextureResource";
 import JSONResource from "./resources/JSONResource";
 import SpriteSheetResource from "./resources/SpriteSheetResource";
 import BitmapFontResource from "./resources/BitmapFontResource";
+import AtlasResource from "./resources/AtlasResource";
 
 export default new class ResourcesManager {
     constructor() {
@@ -11,6 +12,7 @@ export default new class ResourcesManager {
             'image/png': {class: TextureResource, type: 2},
             'application/json': {class: JSONResource, type: 1},
             'text/xml': {class: BitmapFontResource, type: 1},
+            'atlas': {class: AtlasResource, type: 1},
         }
 
         this._textures = {};
@@ -28,7 +30,7 @@ export default new class ResourcesManager {
         switch (typeData.type) {
             case 1:
                 resource = this.getData(name, typeData, data);
-                this.addSpriteSheet(name);
+                this.getSpriteSheet(name).data = resource;
                 break;
             case 2:
                 resource = this.getTexture(name, typeData, data);
@@ -110,6 +112,10 @@ export default new class ResourcesManager {
     }*/
 
     getSpriteSheet(name) {
+        if (!this._spriteSheets.hasOwnProperty(name)) {
+            this._spriteSheets[name] = new SpriteSheetResource(name);
+            this._spriteSheets['spriteSheet'] = this._spriteSheets[name];
+        }
         return this._spriteSheets[name];
     }
 }

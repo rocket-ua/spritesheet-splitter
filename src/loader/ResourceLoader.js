@@ -1,6 +1,6 @@
 import EventEmitter from "../event/EventEmitter";
 import ResourcesManager from "../resources/ResourcesManager";
-import GlobalDispatcher from "../event/GlobalDispatcher";
+import path from "path";
 
 export default new class ResourceLoader extends EventEmitter {
     constructor() {
@@ -30,7 +30,7 @@ export default new class ResourceLoader extends EventEmitter {
     }
 
     onError(event) {
-
+        console.log(`[ResourceLoader] Loading error`);
     }
 
     onLoad(event) {
@@ -46,13 +46,13 @@ export default new class ResourceLoader extends EventEmitter {
     }
 
     fileLoadingComplete(data) {
-        let name = data.responseURL.substring(data.responseURL.lastIndexOf('/') + 1);
+        let name = path.basename(data.responseURL);
         ResourcesManager.addResource(name, data.response);
         if (data.response.type === 'application/json') {
             let resource = ResourcesManager.getData(name);
             resource.on('loaded', ()=>{
                 resource.textures.forEach((textureData)=>{
-                    this.add(data.responseURL.replace(name, textureData.name));
+                    this.add(path.dirname(data.responseURL) + '/' + textureData.name);
                 });
                 if (!this._inProgress) {
                     this.load()

@@ -5,7 +5,7 @@ export default new class DownloadPopup {
         Vue.component('download-popup', {
             data: () => {
                 return {
-                    show: window.showButton
+                    show: false
                 }
             },
             template: `

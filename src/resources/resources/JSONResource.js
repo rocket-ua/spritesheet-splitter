@@ -27,6 +27,7 @@ export default class JSONResource extends DataResource {
                             x: +this.data.meta.scale,
                             y: +this.data.meta.scale
                         },
+                        rotation: spriteSrcData.rotated ? -90 : 0,
                         textureName: this.data.meta.image
                     }
                 }
