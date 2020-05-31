@@ -37,11 +37,13 @@ export default class JSONResource extends DataResource {
 
     _parseSrcData() {
         if (this._srcData) {
+            console.log(`[JSONResource] Start prepare data ${this._name}`);
             this._type = this._srcData.type;
             let fileReader = new FileReader();
             fileReader.addEventListener('loadend', (event) => {
                 this.data = JSON.parse(event.target.result);
                 this._ready = true;
+                console.log(`[JSONResource] Prepare data complete ${this._name}`);
                 this.emit('loaded', this);
             }, false);
             fileReader.readAsText(this._srcData);

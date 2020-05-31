@@ -26,6 +26,8 @@ export default class SpriteSheetResource extends EventEmitter {
 
     _onTexturesReady() {
         this._ready = true;
+        console.log(`[SpriteSheetResource] Prepare data complete ${this._name}`);
+        this.emit('loaded');
     }
 
     getSpriteData(name) {
@@ -43,6 +45,7 @@ export default class SpriteSheetResource extends EventEmitter {
     }
 
     set data(value) {
+        console.log(`[SpriteSheetResource] Start prepare data ${this._name}`);
         this._data = value;
         this._data.promise.then(this._onDataReady);
     }

@@ -56,13 +56,13 @@ export default class BitmapFontResource extends DataResource {
 
     _parseSrcData() {
         if (this._srcData) {
+            console.log(`[BitmapFontResource] Start prepare data ${this._name}`);
             this._type = this._srcData.type;
             let fileReader = new FileReader();
             fileReader.addEventListener('loadend', (event) => {
                 this.data = new DOMParser().parseFromString(event.target.result,"application/xml");
-
-
                 this._ready = true;
+                console.log(`[BitmapFontResource] Prepare data complete ${this._name}`);
                 this.emit('loaded');
             }, false);
             fileReader.readAsText(this._srcData);

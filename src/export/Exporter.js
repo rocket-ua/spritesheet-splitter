@@ -21,11 +21,13 @@ export default new class Exporter {
         //получить данные отрисованных спрайтов из спрайтлиста (по массиву имен)
         let spriteSheetData = this._spriteSheetsData[spriteSheetName];
         sprites.forEach((spriteName)=>{
+            console.log(`[Exporter] Receiving sprite ${spriteName}`);
             let type = spriteName.indexOf(/(.jpg|.jpeg)/) === -1 ? 'image/png' : 'image/jpg'
             spriteSheetData[spriteName] = {
                 data: RendererExport.drawSpriteToExport(spriteSheetName, spriteName, type),
                 type: type
             };
+            console.log(`[Exporter] Sprite received ${spriteName}`);
         });
 
         //создать архив

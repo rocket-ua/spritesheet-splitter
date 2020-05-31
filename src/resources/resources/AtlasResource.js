@@ -99,11 +99,13 @@ export default class AtlasResource extends DataResource {
 
     _parseSrcData() {
         if (this._srcData) {
+            console.log(`[AtlasResource] Start prepare data ${this._name}`);
             this._type = this._srcData.type;
             let fileReader = new FileReader();
             fileReader.addEventListener('loadend', (event) => {
                 this.data = event.target.result;
                 this._ready = true;
+                console.log(`[AtlasResource] Start prepare data ${this._name}`);
                 this.emit('loaded', this);
             }, false);
             fileReader.readAsText(this._srcData);
