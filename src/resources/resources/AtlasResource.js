@@ -88,6 +88,11 @@ export default class AtlasResource extends DataResource {
                                 spriteData.spriteSourceSize.x = +(values[0].trim());
                                 spriteData.spriteSourceSize.y = +(values[1].trim());
                                 break;
+                            case 'index':
+                                if (+paramData[2] !== -1) {
+                                    spriteName += `_${+paramData[2]}`;
+                                }
+                                break;
                         }
                     });
                     this._sprites[spriteName] = spriteData;
