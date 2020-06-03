@@ -4,6 +4,8 @@ export default class TextureResource extends Resource {
     constructor(name, srcData, data) {
         super(name, srcData, data);
 
+        this._type = 2;
+
         this.data = new Image();
         this.data.onload = () =>{
             this._ready = true;
@@ -15,12 +17,7 @@ export default class TextureResource extends Resource {
     _parseSrcData(value) {
         if (this._srcData) {
             console.log(`[TextureResource] Start prepare data ${this._name}`);
-            this._type = this._srcData.type;
-            let fileReader = new FileReader();
-            fileReader.addEventListener('loadend', (event) => {
-                this.data.src = event.target.result;
-            }, false);
-            fileReader.readAsDataURL(this._srcData);
+            this.data.src = this._srcData;
         }
     }
 

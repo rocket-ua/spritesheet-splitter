@@ -4,6 +4,7 @@ export default class DataResource extends Resource {
     constructor(name, srcData, data) {
         super(name, srcData, data);
 
+        this._type = 1;
         this._textures = {};
         this._sprites = {};
     }

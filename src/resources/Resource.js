@@ -6,7 +6,7 @@ export default class Resource extends EventEmitter {
         this._name = name || '';
         this._srcData = {};
         this._data = {};
-        this._type = '';
+        this._type = null;
 
         this._promise = new Promise((resolve, reject) => {
             this.on('loaded', resolve);

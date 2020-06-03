@@ -48,7 +48,7 @@ export default new class Exporter {
             if (spriteSheetData.hasOwnProperty(param)) {
                 let exportData = spriteSheetData[param];
                 let ext = exportData.type === 'image/jpg' ? '.jpg' : '.png';
-                let filePath = param + ext;
+                let filePath = param.replace(ext, '') + ext;
                 console.log(`[Exporter] Export file ${filePath}`);
                 zip.file(filePath, this._formatURL(exportData.data), {base64: true});
             }

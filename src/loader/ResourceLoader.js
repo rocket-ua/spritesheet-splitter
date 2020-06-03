@@ -47,19 +47,20 @@ export default new class ResourceLoader extends EventEmitter {
 
     fileLoadingComplete(data) {
         let name = path.basename(data.responseURL);
-        ResourcesManager.addResource(name, data.response);
-        let extName = path.extname(data.responseURL);
-        if (data.response.type === 'application/json' || extName === '.atlas') {
-            let resource = ResourcesManager.getData(name);
-            resource.on('loaded', ()=>{
-                resource.textures.forEach((textureData)=>{
-                    this.add(path.dirname(data.responseURL) + '/' + textureData.name);
-                });
-                if (!this._inProgress) {
-                    this.load()
-                }
-            });
-        }
+        ResourcesManager.addResource(name, data.response).then((resource) => {
+            switch (resource.type) {
+                case 1:
+                    resource.textures.forEach((textureData) => {
+                        this.add(path.dirname(data.responseURL) + '/' + textureData.name);
+                    });
+                    if (!this._inProgress) {
+                        this.load();
+                    }
+                    break;
+            }
+        }, () => {
+
+        });
     }
 
     get loaderStack() {

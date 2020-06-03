@@ -42,7 +42,7 @@ export default class AtlasResource extends DataResource {
                         },
                         rotation: 0,
                         rotated: false, //rotate
-                        trimmed: true,
+                        trimmed: false,
                         spriteSourceSize: {
                             x: 0,   //offset[0]
                             y: 0,   //offset[1]
@@ -87,6 +87,7 @@ export default class AtlasResource extends DataResource {
                                 values = paramData[2].split(',');
                                 spriteData.spriteSourceSize.x = +(values[0].trim());
                                 spriteData.spriteSourceSize.y = +(values[1].trim());
+                                spriteData.trimmed = true;
                                 break;
                             case 'index':
                                 if (+paramData[2] !== -1) {
@@ -105,15 +106,10 @@ export default class AtlasResource extends DataResource {
     _parseSrcData() {
         if (this._srcData) {
             console.log(`[AtlasResource] Start prepare data ${this._name}`);
-            this._type = this._srcData.type;
-            let fileReader = new FileReader();
-            fileReader.addEventListener('loadend', (event) => {
-                this.data = event.target.result;
-                this._ready = true;
-                console.log(`[AtlasResource] Start prepare data ${this._name}`);
-                this.emit('loaded', this);
-            }, false);
-            fileReader.readAsText(this._srcData);
+            this.data = this._srcData;
+            this._ready = true;
+            console.log(`[AtlasResource] Start prepare data ${this._name}`);
+            this.emit('loaded', this);
         }
     }
 }
