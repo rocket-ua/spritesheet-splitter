@@ -12,13 +12,16 @@ Supported data files formats and sprite sheets for engines:
 <li>Spine atlas</li>
 <li>Godot 3 Sprite Sheet</li>
 <li>Godot 3 Tile Set</li>
+<li>LayaAir2.0</li>
 <li>libGDX</li>
+<li>MelonJS</li>
 <li>Panda 2</li>
 <li>Phaser 2</li>
 <li>Phaser 3</li>
 <li>Spark AR Studio</li>
 <li>Unity JSON data</li>
 <li>UnrealEngine</li>
+<li>V-Ray</li>
 </ul>  
   
 #### More data formats and file types coming soon.  
