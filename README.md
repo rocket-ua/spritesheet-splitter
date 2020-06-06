@@ -40,6 +40,9 @@ Use sprite sheet files downloaded from external site:
 ```
 https://rocket-ua.github.io/spritesheet-splitter/?url=https://testwite.com/assets/game-1.json
 ```
-___
+___  
+### CLI version  
+You can try to use web version [spritesheet-splitter-cli](https://www.npmjs.com/package/spritesheet-splitter-cli/)  
+Readme how to use on [github](https://github.com/rocket-ua/spritesheet-splitter-cli#readme)  
 ### Contacts
 Telegram [@rocket_ua](https://t.me/rocket_ua)
