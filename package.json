@@ -24,7 +24,7 @@
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
-    "jszip": "^3.4.0",
+    "jszip": "^3.7.0",
     "path": "^0.12.7",
     "vue": "^2.6.11"
   }
